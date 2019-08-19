@@ -1,7 +1,7 @@
 function [resp] = OneAConductanceMarcuvitz(f,a,b)
 %Implementação da formula 1a referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook 
 %Valido enquanto lambda > 2(a-b)/3.142
-%f = 1*10^9:5800000:3*10^10;
+%f = 8*10^10;
 %a = 12.5*10^-3/2;
 %b = 4.47*10^-3/2;
 %a/b = 2.7964
@@ -21,11 +21,8 @@ k = 2*pi./lambda;
 integral =0;
 resp = zeros(1,length(z-1));
 for j = 1:length(f)    
-    for i=1:length(z)
-        integral = integral+(step./sin(i)).*(besselj(0,(2*pi/lambda(j))*a.*sin(i))- besselj(0,(2*pi/lambda(j))*b.*sin(i)) ).^2;    
-    end
+    integral = sum((step./sin(z)).*(besselj(0,(2*pi/lambda(j))*a.*sin(z))- besselj(0,(2*pi/lambda(j))*b.*sin(z)) ).^2);    
     resp(j) = (1/log(a/b))*integral;
-    integral = 0;
 end
 
 plot((a-b)./lambda,resp)
