@@ -1,21 +1,19 @@
-function [resp] = OneAConductanceMarcuvitz(f,a,b)
-%Implementação da formula 1a referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook 
+function [resp] = TwoASusceptanceMarcuvitz(f,a,b)
+%Implementação da formula 2a referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook 
 %Valido enquanto lambda > 2(a-b)/3.142
 %f = 8*10^10;
 %a = 12.5*10^-3/2;
 %b = 4.47*10^-3/2;
 %a/b = 2.7964
-step = pi/500;
-z = step:step:pi/2;
+step = pi/250;
+z = step:step:pi;
 temp = (f-10^9)/(length(z)-1);
 f = 10^9:temp:f;
 lambda = physconst('LightSpeed')./f;
-k = 2*pi./lambda;
-resp = zeros(1,length(z-1));
-for j = 1:length(f)    
-    integral = sum((step./sin(z)).*(besselj(0,(2*pi/lambda(j))*a.*sin(z))- besselj(0,(2*pi/lambda(j))*b.*sin(z)) ).^2);    
-    resp(j) = (1/log(a/b))*integral;
-end
+k = (2*pi./lambda)';
+integral = sum(step*(2*sinint(k.*(a^2+b^2-2*a*b.*cos(z)).^0.5) - sinint(2*k*a.*sin(z./2)) -sinint(2*k*b.*sin(z./2))),2);    
+resp = (1/(pi*log(a/b))).*integral;
+
 
 plot((a-b)./lambda,resp)
 grid on
