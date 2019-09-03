@@ -10,14 +10,14 @@ f = 10^9:temp:f;
 lambda = physconst('LightSpeed')./f;
 SWR = (1+abs(r))./(1-abs(r));
 
-plot((a-b)./lambda,G)
+plot(f,G)
 grid on
 legend({['$\displaystyle\frac{a}{b}= $' num2str(a/b)]},'Interpreter','latex','Location','Best')
 title('Formula 1a) referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook','interpreter','latex')
 xlabel('$\displaystyle\frac{a-b}{\lambda} $','interpreter','latex')
 ylabel('$\displaystyle\frac{G}{Y_0}$','interpreter','latex','Rotation',0)
 
-plot((a-b)./lambda,B)
+plot(f,B)
 grid on
 legend({['$\displaystyle\frac{a}{b}= $' num2str(a/b)]},'Interpreter','latex','Location','Best')
 title('Formula 1a) referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook','interpreter','latex')
@@ -26,6 +26,7 @@ ylabel('$\displaystyle\frac{G}{Y_0}$','interpreter','latex','Rotation',0)
 
 plot(f./10^9,SWR)
 xlim([10 80])
+ylim([1 5])
 grid on
 legend({['$\displaystyle\frac{a}{b}= $' num2str(a/b)]},'Interpreter','latex','Location','Best')
 xlabel('Frequência GHz','interpreter','latex')
