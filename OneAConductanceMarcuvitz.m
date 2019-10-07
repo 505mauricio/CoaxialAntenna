@@ -19,6 +19,7 @@ end
 
 plot((a-b)./lambda,resp)
 grid on
+grid minor
 legend({['$\displaystyle\frac{a}{b}= $' num2str(a/b)]},'Interpreter','latex','Location','Best')
 title('Formula 1a) referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook','interpreter','latex')
 xlabel('$\displaystyle\frac{a-b}{\lambda} $','interpreter','latex')

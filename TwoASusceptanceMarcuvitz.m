@@ -17,8 +17,9 @@ resp = (1/(pi*log(a/b))).*integral;
 
 plot((a-b)./lambda,resp)
 grid on
+grid minor
 legend({['$\displaystyle\frac{a}{b}= $' num2str(a/b)]},'Interpreter','latex','Location','Best')
-title('Formula 1a) referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook','interpreter','latex')
+title('Formula 2a) referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook','interpreter','latex')
 xlabel('$\displaystyle\frac{a-b}{\lambda} $','interpreter','latex')
-ylabel('$\displaystyle\frac{G}{Y_0}$','interpreter','latex','Rotation',0)
+ylabel('$\displaystyle\frac{B}{Y_0}$','interpreter','latex','Rotation',0)
 
