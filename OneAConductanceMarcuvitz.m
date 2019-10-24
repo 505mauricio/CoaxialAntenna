@@ -1,4 +1,4 @@
-function [resp] = OneAConductanceMarcuvitz(f,a,b)
+function [resp,f] = OneAConductanceMarcuvitz(f,a,b)
 %Implementação da formula 1a referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook 
 %Valido enquanto lambda > 2(a-b)/3.142
 %f = 8*10^10;
@@ -16,7 +16,7 @@ for j = 1:length(f)
     integral = sum((step./sin(z)).*(besselj(0,(2*pi/lambda(j))*a.*sin(z))- besselj(0,(2*pi/lambda(j))*b.*sin(z)) ).^2);    
     resp(j) = (1/log(a/b))*integral;
 end
-
+resp = resp';
 plot((a-b)./lambda,resp)
 grid on
 grid minor

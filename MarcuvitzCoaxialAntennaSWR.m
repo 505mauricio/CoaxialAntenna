@@ -1,35 +1,28 @@
-function [SWR] = MarcuvitzCoaxialAntennaSWR(f,a,b)
-G = OneAConductanceMarcuvitz(f,a,b)';
-B = TwoASusceptanceMarcuvitz(f,a,b);
+function [SWR,G,B,fLimite] = MarcuvitzCoaxialAntennaSWR(fLimite,a,b)
+%Função que plota SWR de antenas coaxiais segundo a formula do marcuvitz,
+%para o intervalo de 1GHz até uma fLimite
+
+[G,FreqConductance] = OneAConductanceMarcuvitz(fLimite,a,b);
+[B,FreqSusceptance] = TwoASusceptanceMarcuvitz(fLimite,a,b);
 Y = G+i*B;
 r = (1 - Y)./(1+Y);
 step = pi/500;
 z = step:step:pi/2;
-temp = (f-10^9)/(length(z)-1);
-f = 10^9:temp:f;
+temp = (fLimite-10^9)/(length(z)-1);
+f = 10^9:temp:fLimite;
 lambda = physconst('LightSpeed')./f;
 SWR = (1+abs(r))./(1-abs(r));
 
-plot(f,G)
-grid on
-legend({['$\displaystyle\frac{a}{b}= $' num2str(a/b)]},'Interpreter','latex','Location','Best')
-title('Formula 1a) referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook','interpreter','latex')
-xlabel('$\displaystyle\frac{a-b}{\lambda} $','interpreter','latex')
-ylabel('$\displaystyle\frac{G}{Y_0}$','interpreter','latex','Rotation',0)
-
-plot(f,B)
-grid on
-legend({['$\displaystyle\frac{a}{b}= $' num2str(a/b)]},'Interpreter','latex','Location','Best')
-title('Formula 1a) referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook','interpreter','latex')
-xlabel('$\displaystyle\frac{a-b}{\lambda} $','interpreter','latex')
-ylabel('$\displaystyle\frac{G}{Y_0}$','interpreter','latex','Rotation',0)
-
 plot(f./10^9,SWR)
-xlim([10 80])
-ylim([1 5])
+xlim([1 80])
+ylim([1 3])
 grid on
-legend({['$\displaystyle\frac{a}{b}= $' num2str(a/b)]},'Interpreter','latex','Location','Best')
-xlabel('Frequência GHz','interpreter','latex')
+grid minor
+legend({['$\displaystyle\frac{a}{b}= $' num2str(a/b)]},'Interpreter','latex','Location','best')
+
+xlabel('Frequencia GHz')
 ylabel('SWR','interpreter','latex','Rotation',0)
+
+
 
 
