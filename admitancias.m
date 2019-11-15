@@ -1,0 +1,12 @@
+[CA400Conductance,fCA400Conductance] = OneAConductanceMarcuvitz(3*10^10,8.13/2*10^-3,2.74/2*10^-3);
+[CA400Susceptance,fCA400Susceptance] = TwoASusceptanceMarcuvitz(3*10^10,8.13/2*10^-3,2.74/2*10^-3);
+[SCF1250Conductance,fSCF1250Conductance] = OneAConductanceMarcuvitz(3*10^10,12.3/2*10^-3,3.56/2*10^-3);
+[SCF1250Susceptance,fSCF1250Susceptance] = TwoASusceptanceMarcuvitz(3*10^10,12.3/2*10^-3,3.56/2*10^-3);
+[CA600Conductance,fCA600Conductance] = OneAConductanceMarcuvitz(3*10^10,12.5/2*10^-3,4.47/2*10^-3);
+[CA600Susceptance,fCA600Susceptance] = TwoASusceptanceMarcuvitz(3*10^10,12.5/2*10^-3,4.47/2*10^-3);
+[CA900DBConductance,fCA900DBConductance] = OneAConductanceMarcuvitz(3*10^10,18.54/2*10^-3,6.6/2*10^-3);
+[CA900DBSusceptance,fCA900DBSusceptance] = TwoASusceptanceMarcuvitz(3*10^10,18.54/2*10^-3,6.6/2*10^-3);
+[LCF7850DBConductance,fLCF7850DBConductance] = OneAConductanceMarcuvitz(3*10^10,25.2/2*10^-3,9.32/2*10^-3);
+[LCF7850DBSusceptance,fLCF7850DBSusceptance] = TwoASusceptanceMarcuvitz(3*10^10,25.2/2*10^-3,9.32/2*10^-3);
+[LCF15850Conductance,fLCF15850Conductance] = OneAConductanceMarcuvitz(3*10^10,46.5/2*10^-3,17.6/2*10^-3);
+[LCF15850Susceptance,fLCF15850Susceptance] = TwoASusceptanceMarcuvitz(3*10^10,46.5/2*10^-3,17.6/2*10^-3);

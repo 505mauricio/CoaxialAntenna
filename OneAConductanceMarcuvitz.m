@@ -1,10 +1,13 @@
 function [resp,f] = OneAConductanceMarcuvitz(f,a,b)
 %Implementação da formula 1a referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook 
-%Valido enquanto lambda > 2(a-b)/3.142
+%Valido enquanto lambda > 2(a-b)/gamma_1
 %f = 8*10^10;
 %a = 12.5*10^-3/2;
 %b = 4.47*10^-3/2;
 %a/b = 2.7964
+%x_1 = besscrosszero(0,a/b,1);
+%gamma_1 = x_1*(a/b-1)/pi; 
+%validade = physconst('LightSpeed')*gamma_1/(2*(a-b));
 step = pi/500;
 z = step:step:pi/2;
 temp = (f-10^9)/(length(z)-1);

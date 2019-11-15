@@ -1,6 +1,6 @@
 function [resp,f] = TwoASusceptanceMarcuvitz(f,a,b)
 %Implementação da formula 2a referente a parte 4-16 do livro Marcuvitz-Waveguide Handbook 
-%Valido enquanto lambda > 2(a-b)/3.142
+%Valido enquanto lambda > 2(a-b)/gamma_1
 %f = 8*10^10;
 %a = 12.5*10^-3/2;
 %b = 4.47*10^-3/2;
